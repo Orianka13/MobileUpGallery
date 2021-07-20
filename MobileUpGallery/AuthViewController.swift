@@ -16,7 +16,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        authService = AuthService()
+        authService = SceneDelegate.shared().authService
         
     }
     @IBAction func enterButton(_ sender: UIButton) {
