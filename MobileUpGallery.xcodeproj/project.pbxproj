@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,25 @@
 		59D684D626A6DA71004EFB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D684D426A6DA71004EFB9C /* Main.storyboard */; };
 		59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D684D726A6DA7B004EFB9C /* Assets.xcassets */; };
 		59D684DB26A6DA7B004EFB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D684D926A6DA7B004EFB9C /* LaunchScreen.storyboard */; };
+		68BEB1F3C58E46D926C780AF /* Pods_MobileUpGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D93F7ED4CD6A6802EDB2E /* Pods_MobileUpGallery.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		59D684E826A6F7EC004EFB9C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02A37BB3B52499457289837E /* Pods-MobileUpGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.debug.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		0D3D93F7ED4CD6A6802EDB2E /* Pods_MobileUpGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileUpGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D684D026A6DA71004EFB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +40,7 @@
 		59D684D726A6DA7B004EFB9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D684DA26A6DA7B004EFB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D684DC26A6DA7B004EFB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F55C4149FF7A5E045E74E1 /* Pods-MobileUpGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.release.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +48,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BEB1F3C58E46D926C780AF /* Pods_MobileUpGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51EB4A7F4018D23FEBA12FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D3D93F7ED4CD6A6802EDB2E /* Pods_MobileUpGallery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		59D684C226A6DA71004EFB9C = {
 			isa = PBXGroup;
 			children = (
 				59D684CD26A6DA71004EFB9C /* MobileUpGallery */,
 				59D684CC26A6DA71004EFB9C /* Products */,
+				683B289356F980AFE662ECB7 /* Pods */,
+				51EB4A7F4018D23FEBA12FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +95,15 @@
 			path = MobileUpGallery;
 			sourceTree = "<group>";
 		};
+		683B289356F980AFE662ECB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02A37BB3B52499457289837E /* Pods-MobileUpGallery.debug.xcconfig */,
+				64F55C4149FF7A5E045E74E1 /* Pods-MobileUpGallery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59D684DF26A6DA7B004EFB9C /* Build configuration list for PBXNativeTarget "MobileUpGallery" */;
 			buildPhases = (
+				8B0EAF82C67A5414F3C018B5 /* [CP] Check Pods Manifest.lock */,
 				59D684C726A6DA71004EFB9C /* Sources */,
 				59D684C826A6DA71004EFB9C /* Frameworks */,
 				59D684C926A6DA71004EFB9C /* Resources */,
+				59D684E826A6F7EC004EFB9C /* Embed Frameworks */,
+				39528B7C1209EC64090000F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +171,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39528B7C1209EC64090000F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B0EAF82C67A5414F3C018B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileUpGallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59D684C726A6DA71004EFB9C /* Sources */ = {
@@ -283,11 +365,14 @@
 		};
 		59D684E026A6DA7B004EFB9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02A37BB3B52499457289837E /* Pods-MobileUpGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6924K5V5X2;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "\"${PODS_CONFIGURATION_BUILD_DIR}/VK-ios-sdk/";
 				INFOPLIST_FILE = MobileUpGallery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,11 +382,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
 		59D684E126A6DA7B004EFB9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64F55C4149FF7A5E045E74E1 /* Pods-MobileUpGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +403,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
