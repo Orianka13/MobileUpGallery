@@ -69,6 +69,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5975DDEA26A86B1E00789746 /* GalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
+				5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */,
+			);
+			path = GalleryViewController;
+			sourceTree = "<group>";
+		};
+		5975DDEB26A86B4400789746 /* AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				59D684D226A6DA71004EFB9C /* AuthViewController.swift */,
+				5979BBFE26A712E200069B14 /* AuthViewController.storyboard */,
+			);
+			path = AuthViewController;
+			sourceTree = "<group>";
+		};
 		59D684C226A6DA71004EFB9C = {
 			isa = PBXGroup;
 			children = (
@@ -92,10 +110,8 @@
 			children = (
 				59D684CE26A6DA71004EFB9C /* AppDelegate.swift */,
 				59D684D026A6DA71004EFB9C /* SceneDelegate.swift */,
-				59D684D226A6DA71004EFB9C /* AuthViewController.swift */,
-				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
-				5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */,
-				5979BBFE26A712E200069B14 /* AuthViewController.storyboard */,
+				5975DDEB26A86B4400789746 /* AuthViewController */,
+				5975DDEA26A86B1E00789746 /* GalleryViewController */,
 				59D684EE26A70D96004EFB9C /* Services */,
 				59D684D726A6DA7B004EFB9C /* Assets.xcassets */,
 				59D684D926A6DA7B004EFB9C /* LaunchScreen.storyboard */,

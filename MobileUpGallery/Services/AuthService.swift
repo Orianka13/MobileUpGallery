@@ -41,7 +41,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
                 VKSdk.authorize(scope)
             default:
                 delegate?.authServiceSingiInDidFail()
-                fatalError(error!.localizedDescription)
             }
         }
     }
