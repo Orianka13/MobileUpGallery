@@ -9,7 +9,7 @@ import Foundation
 import VK_ios_sdk
 
 protocol AuthServiceDelegate: AnyObject {
-    func authServiceShouldShow(viewController: UIViewController)
+    func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceSingiInDidFail()
 }
@@ -19,6 +19,8 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     private let appId = "7907481"
     private let vkSdk: VKSdk
     
+    weak var delegate: AuthServiceDelegate?
+    
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
         super.init()
@@ -27,18 +29,18 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         vkSdk.uiDelegate = self
     }
     
-    weak var delegate: AuthServiceDelegate?
-    
-    func wakeUpSession(){
+    func wakeUpSession() {
         let scope = ["offline"]
-        VKSdk.wakeUpSession(scope) { state, error in
+        VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             switch state {
+            case .authorized:
+                print("authorized")
+                delegate?.authServiceSignIn()
             case .initialized:
                 print("initialized")
                 VKSdk.authorize(scope)
-            case .authorized:
-                print("authorized")
             default:
+                delegate?.authServiceSingiInDidFail()
                 fatalError(error!.localizedDescription)
             }
         }
@@ -46,17 +48,21 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
-        delegate?.authServiceSignIn()
+        if result.token != nil {
+            delegate?.authServiceSignIn()
+        } else {
+            print(result.error.localizedDescription)
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {
         print(#function)
-        delegate?.authServiceSingiInDidFail()
+       //delegate?.authServiceSingiInDidFail()
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
         print(#function)
-        delegate?.authServiceShouldShow(viewController: controller)
+        delegate?.authServiceShouldShow(controller)
     }
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
