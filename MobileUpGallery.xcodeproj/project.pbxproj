@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5975DDE726A86A0A00789746 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DDE626A86A0A00789746 /* GalleryViewController.swift */; };
+		5975DDE926A86A1F00789746 /* GalleryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */; };
 		5979BBFF26A712E200069B14 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5979BBFE26A712E200069B14 /* AuthViewController.storyboard */; };
 		59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684CE26A6DA71004EFB9C /* AppDelegate.swift */; };
 		59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D026A6DA71004EFB9C /* SceneDelegate.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		02A37BB3B52499457289837E /* Pods-MobileUpGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.debug.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.debug.xcconfig"; sourceTree = "<group>"; };
 		0D3D93F7ED4CD6A6802EDB2E /* Pods_MobileUpGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileUpGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5975DDE626A86A0A00789746 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GalleryViewController.storyboard; sourceTree = "<group>"; };
 		5979BBFE26A712E200069B14 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				59D684CE26A6DA71004EFB9C /* AppDelegate.swift */,
 				59D684D026A6DA71004EFB9C /* SceneDelegate.swift */,
 				59D684D226A6DA71004EFB9C /* AuthViewController.swift */,
+				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
+				5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */,
 				5979BBFE26A712E200069B14 /* AuthViewController.storyboard */,
 				59D684EE26A70D96004EFB9C /* Services */,
 				59D684D726A6DA7B004EFB9C /* Assets.xcassets */,
@@ -175,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5975DDE926A86A1F00789746 /* GalleryViewController.storyboard in Resources */,
 				59D684DB26A6DA7B004EFB9C /* LaunchScreen.storyboard in Resources */,
 				5979BBFF26A712E200069B14 /* AuthViewController.storyboard in Resources */,
 				59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */,
@@ -232,6 +239,7 @@
 			files = (
 				59D684D326A6DA71004EFB9C /* AuthViewController.swift in Sources */,
 				59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */,
+				5975DDE726A86A0A00789746 /* GalleryViewController.swift in Sources */,
 				59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */,
 				59D684ED26A70D8D004EFB9C /* AuthService.swift in Sources */,
 			);
