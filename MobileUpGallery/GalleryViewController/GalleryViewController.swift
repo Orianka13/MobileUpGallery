@@ -11,13 +11,15 @@ import VK_ios_sdk
 private let reuseIdentifier = "Cell"
 
 class GalleryViewController: UICollectionViewController {
+    
+    private let networkService = NetworkService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-
+        networkService.getPhoto()
     }
 
     /*
