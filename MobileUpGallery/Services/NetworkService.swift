@@ -16,7 +16,6 @@ final class NetworkService {
     }
     
     func getPhoto(){
-        var components = URLComponents()
         
         guard let token = authService.token else {
             print("Error - no token")
@@ -28,16 +27,19 @@ final class NetworkService {
         var allParams = params
         allParams["access_token"] = token
         allParams["v"] = API.version
+        let url = self.url(from: API.photos, params: allParams)
+        
+        print(url)
+    }
+    
+    private func url(from path: String, params: [String: String]) -> URL {
+        var components = URLComponents()
         
         components.scheme = API.scheme
         components.host = API.host
         components.path = API.photos
-        components.queryItems = allParams.map{ URLQueryItem(name: $0, value: $1) }
+        components.queryItems = params.map{ URLQueryItem(name: $0, value: $1) }
         
-        guard let url = components.url else {
-            print("No url")
-            return
-        }
-        print(url)
+        return components.url!
     }
 }
