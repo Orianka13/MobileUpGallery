@@ -12,20 +12,18 @@ private let reuseIdentifier = "Cell"
 
 class GalleryViewController: UICollectionViewController {
     
-    private let networkService: Networking = NetworkService()
+    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        let params = ["owner_id": API.owner_id, "album_id": API.album_id]
-        networkService.request(path: API.photos, params: params) { data, error in
-            if let error = error {
-                print("Error received requesting data: \(error.localizedDescription)")
+        
+        fetcher.getPhotos { photosResponse in
+            guard let photosResponse = photosResponse else { return }
+            photosResponse.items.map { photosItem in
+                print(photosItem.id)
             }
-            guard let data = data else { return }
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
-            print("json: \(json)")
         }
     }
 

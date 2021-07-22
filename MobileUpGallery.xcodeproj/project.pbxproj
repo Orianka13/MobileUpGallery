@@ -11,6 +11,8 @@
 		5975DDE926A86A1F00789746 /* GalleryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */; };
 		5975DDED26A96B1E00789746 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DDEC26A96B1E00789746 /* NetworkService.swift */; };
 		5975DDEF26A96C3100789746 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DDEE26A96C3100789746 /* API.swift */; };
+		5975DDF226A99AFE00789746 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DDF126A99AFE00789746 /* PhotosResponse.swift */; };
+		5975DDF426A9A2BE00789746 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DDF326A9A2BE00789746 /* NetworkDataFetcher.swift */; };
 		5979BBFF26A712E200069B14 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5979BBFE26A712E200069B14 /* AuthViewController.storyboard */; };
 		59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684CE26A6DA71004EFB9C /* AppDelegate.swift */; };
 		59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D026A6DA71004EFB9C /* SceneDelegate.swift */; };
@@ -41,6 +43,8 @@
 		5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GalleryViewController.storyboard; sourceTree = "<group>"; };
 		5975DDEC26A96B1E00789746 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5975DDEE26A96C3100789746 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		5975DDF126A99AFE00789746 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		5975DDF326A9A2BE00789746 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		5979BBFE26A712E200069B14 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,14 @@
 			path = AuthViewController;
 			sourceTree = "<group>";
 		};
+		5975DDF026A99AE100789746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5975DDF126A99AFE00789746 /* PhotosResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		59D684C226A6DA71004EFB9C = {
 			isa = PBXGroup;
 			children = (
@@ -127,9 +139,11 @@
 		59D684EE26A70D96004EFB9C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5975DDF026A99AE100789746 /* Models */,
 				59D684EC26A70D8D004EFB9C /* AuthService.swift */,
 				5975DDEC26A96B1E00789746 /* NetworkService.swift */,
 				5975DDEE26A96C3100789746 /* API.swift */,
+				5975DDF326A9A2BE00789746 /* NetworkDataFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -262,8 +276,10 @@
 				59D684D326A6DA71004EFB9C /* AuthViewController.swift in Sources */,
 				59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */,
 				5975DDE726A86A0A00789746 /* GalleryViewController.swift in Sources */,
+				5975DDF226A99AFE00789746 /* PhotosResponse.swift in Sources */,
 				59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */,
 				5975DDED26A96B1E00789746 /* NetworkService.swift in Sources */,
+				5975DDF426A9A2BE00789746 /* NetworkDataFetcher.swift in Sources */,
 				59D684ED26A70D8D004EFB9C /* AuthService.swift in Sources */,
 				5975DDEF26A96C3100789746 /* API.swift in Sources */,
 			);
