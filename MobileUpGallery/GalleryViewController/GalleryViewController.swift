@@ -8,23 +8,18 @@
 import UIKit
 import VK_ios_sdk
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "PhotoCell"
 
 class GalleryViewController: UICollectionViewController {
     
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
+    private let photoCell = PhotoCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        fetcher.getPhotos { photosResponse in
-            guard let photosResponse = photosResponse else { return }
-            photosResponse.items.map { photosItem in
-                print(photosItem.id)
-            }
-        }
+        self.collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
     }
 
     /*
@@ -47,16 +42,35 @@ class GalleryViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return 6
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .red
-    
-        // Configure the cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
+       
+        cell.backgroundColor = .yellow
+        
+        fetcher.getPhotos { photosResponse in
+                    guard let photosResponse = photosResponse else { return }
+                    photosResponse.sizes.map { photosUrl in
+                        self.set(imageURL: photosUrl.url, imageView: cell.imageView)
+                        print(photosUrl.url)
+                    }
+    }
     
         return cell
+    }
+    
+    func set(imageURL: String, imageView: UIImageView){
+        guard let url = URL(string: imageURL) else { return }
+        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imageView.image = image
+                }
+            }
+        }
+        dataTask.resume()
     }
 
     // MARK: UICollectionViewDelegate
@@ -91,3 +105,4 @@ class GalleryViewController: UICollectionViewController {
     */
 
 }
+
