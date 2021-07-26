@@ -8,17 +8,23 @@
 import UIKit
 import VK_ios_sdk
 
-private let reuseIdentifier = "PhotoCell"
+
 
 class GalleryViewController: UICollectionViewController {
+    private let reuseIdentifier = "photoCell"
+
     
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
-    private let photoCell = PhotoCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "PhotoCell", bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
 
-        self.collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
 
     }
 
@@ -34,11 +40,6 @@ class GalleryViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -48,30 +49,42 @@ class GalleryViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
        
-        cell.backgroundColor = .yellow
+        //cell.backgroundColor = .yellow
+        
         
         fetcher.getPhotos { photosResponse in
                     guard let photosResponse = photosResponse else { return }
                     photosResponse.sizes.map { photosUrl in
-                        self.set(imageURL: photosUrl.url, imageView: cell.imageView)
+                        let url = photosUrl.url
                         print(photosUrl.url)
+                        
+                        let session = URLSession.shared
+                        guard let url = URL(string: url) else { return }
+                        session.dataTask(with: url) { data, response, error in
+                                    if let data = data, let image = UIImage(data: data) {
+                                        DispatchQueue.main.async {
+                                            cell.urlView.image = image
+                                            print("а это должна быть фотка - \(image)")
+                                            collectionView.reloadData()
+                                    }
+                                }
+                            }.resume()
                     }
+            
     }
     
         return cell
     }
     
-    func set(imageURL: String, imageView: UIImageView){
-        guard let url = URL(string: imageURL) else { return }
-        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imageView.image = image
-                }
-            }
-        }
-        dataTask.resume()
-    }
+//    guard let url = URL(string: imageURL) else { return }
+//    let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+//            if let data = data, let image = UIImage(data: data) {
+//                DispatchQueue.main.async {
+//                    self?.imageView.image = image
+//            }
+//        }
+//    }
+//    dataTask.resume()
 
     // MARK: UICollectionViewDelegate
 
