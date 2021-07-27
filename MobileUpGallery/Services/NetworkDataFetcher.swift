@@ -26,7 +26,7 @@ struct NetworkDataFetcher: DataFetcher {
                 response(nil)
             }
             let decoded = decodeJSON(type: PhotosResponseWrapped.self, from: data)
-            response(decoded?.response.items.first)
+            response(decoded?.response.items.randomElement())
         }
     }
     
