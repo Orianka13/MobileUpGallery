@@ -25,7 +25,6 @@ struct PhotosUrl: Decodable {
     let url: String
 }
 
-
 struct PhotoViewModel {
     struct Cell: PhotoCellViewModel {
         var photoUrlString: String

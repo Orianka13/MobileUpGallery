@@ -13,7 +13,6 @@ protocol PhotoCellViewModel {
 
 class PhotoCell: UICollectionViewCell {
     
-
     @IBOutlet weak var urlView: WebImageView!
     
     override class func awakeFromNib() {
@@ -22,6 +21,5 @@ class PhotoCell: UICollectionViewCell {
     
     func set(viewModel: PhotoCellViewModel) {
         urlView.setImageUrl(imageURL: viewModel.photoUrlString)
-        
     }
 }

@@ -11,6 +11,7 @@ import VK_ios_sdk
 
 
 class GalleryViewController: UICollectionViewController {
+    
     private let reuseIdentifier = "photoCell"
 
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
@@ -19,16 +20,11 @@ class GalleryViewController: UICollectionViewController {
     let itemsPerRow: CGFloat = 2
     let sectionInserts = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "PhotoCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
-
-        //self.collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
         
         photoUrl()
     }
@@ -45,13 +41,6 @@ class GalleryViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = photoViewModel.cells.count
-        print(count)
-        return count
-    }
-
     func photoUrl() {
             fetcher.getPhotos { photosResponse in
             guard let photosResponse = photosResponse else { return }
@@ -66,14 +55,16 @@ class GalleryViewController: UICollectionViewController {
     }
     }
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoViewModel.cells.count
+    }
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
         let cellViewModel = photoViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
         return cell
-        }
-    
-
+    }
 
     // MARK: UICollectionViewDelegate
 
