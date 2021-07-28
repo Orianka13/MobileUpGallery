@@ -12,6 +12,8 @@ import VK_ios_sdk
 
 class GalleryViewController: UICollectionViewController {
     
+    private var authService: AuthService!
+    
     private let reuseIdentifier = "photoCell"
 
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
@@ -27,6 +29,9 @@ class GalleryViewController: UICollectionViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
         photoUrl()
+        setupTopBar()
+        
+        authService = SceneDelegate.shared().authService
     }
 
     /*
@@ -40,6 +45,17 @@ class GalleryViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
+    
+    private func setupTopBar() {
+        self.navigationController?.hidesBarsOnSwipe = true
+        self.navigationController?.title = "Mobile Up Gallery"
+    
+        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: nil, action: nil)
+        exitButton.tintColor = .black
+        
+        self.navigationItem.rightBarButtonItem = exitButton
+        
+    }
 
     func photoUrl() {
             fetcher.getPhotos { photosResponse in

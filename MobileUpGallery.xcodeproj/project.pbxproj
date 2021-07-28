@@ -86,8 +86,7 @@
 		5975DDEA26A86B1E00789746 /* GalleryViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5975DE0D26AB28C200789746 /* PhotoCell.swift */,
-				5975DE0F26AF0B3200789746 /* PhotoCell.xib */,
+				5975DE1326B1845E00789746 /* Cell */,
 				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
 				5975DDE826A86A1F00789746 /* GalleryViewController.storyboard */,
 			);
@@ -116,6 +115,15 @@
 			children = (
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		5975DE1326B1845E00789746 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5975DE0F26AF0B3200789746 /* PhotoCell.xib */,
+				5975DE0D26AB28C200789746 /* PhotoCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		59D684C226A6DA71004EFB9C = {

@@ -12,6 +12,7 @@ protocol AuthServiceDelegate: AnyObject {
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceSingiInDidFail()
+  
 }
 
 class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
@@ -23,6 +24,7 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     var token: String? {
         return VKSdk.accessToken().accessToken
+        
     }
     
     override init() {
@@ -60,7 +62,7 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkUserAuthorizationFailed() {
         print(#function)
-       //delegate?.authServiceSingiInDidFail()
+       delegate?.authServiceSingiInDidFail()
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {

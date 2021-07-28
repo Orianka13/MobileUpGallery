@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Gallery View Controller-->
+        <!--Mobile Up Gallery-->
         <scene sceneID="eIa-Z7-KmV">
             <objects>
                 <collectionViewController id="wBY-k1-5m2" customClass="GalleryViewController" customModule="MobileUpGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,10 +28,11 @@
                             <outlet property="delegate" destination="wBY-k1-5m2" id="mqy-HX-whU"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Mobile Up Gallery" id="Ou4-ev-3oh"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tm5-HI-eJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40.579710144927539" y="59.598214285714285"/>
+            <point key="canvasLocation" x="869.56521739130437" y="59.598214285714285"/>
         </scene>
     </scenes>
     <resources>
