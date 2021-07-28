@@ -7,25 +7,21 @@
 
 import UIKit
 
+protocol PhotoCellViewModel {
+    var photoUrlString: String { get }
+}
+
 class PhotoCell: UICollectionViewCell {
     
 
-    @IBOutlet weak var urlView: UIImageView!
+    @IBOutlet weak var urlView: WebImageView!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    
-//    func set(imageURL: String){
-//        guard let url = URL(string: imageURL) else { return }
-//        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-//                if let data = data, let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.imageView.image = image
-//                }
-//            }
-//        }
-//        dataTask.resume()
-//    }
+    func set(viewModel: PhotoCellViewModel) {
+        urlView.setImageUrl(imageURL: viewModel.photoUrlString)
+        
+    }
 }

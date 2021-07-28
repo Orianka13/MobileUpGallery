@@ -14,9 +14,11 @@ class GalleryViewController: UICollectionViewController {
     private let reuseIdentifier = "photoCell"
 
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
+    private var photoViewModel = PhotoViewModel.init(cells: [])
     
     let itemsPerRow: CGFloat = 2
     let sectionInserts = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,8 @@ class GalleryViewController: UICollectionViewController {
         //self.collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-
+        
+        photoUrl()
     }
 
     /*
@@ -44,43 +47,33 @@ class GalleryViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-  
-        return 15
+        let count = photoViewModel.cells.count
+        print(count)
+        return count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
-        
-        
-        fetcher.getPhotos { photosResponse in
-                    guard let photosResponse = photosResponse else { return }
-            photosResponse.sizes.map { photosUrl in
-                let url = photosUrl.url
-             
-                        let session = URLSession.shared
-                        guard let url = URL(string: url) else { return }
-                        session.dataTask(with: url) { data, response, error in
-                                    if let data = data, let image = UIImage(data: data) {
-                                        DispatchQueue.main.async {
-                                            cell.urlView.image = image
-                                            //print("а это должна быть фотка - \(image)")
-                                    }
-                                }
-                            }.resume()
-                    }
+    func photoUrl() {
+            fetcher.getPhotos { photosResponse in
+            guard let photosResponse = photosResponse else { return }
+            
+                photosResponse.items.map { photosUrl in
+                let lastItem = photosUrl.sizes.last
+                guard let url = lastItem?.url else { return }
+                    let cell = PhotoViewModel.Cell.init(photoUrlString: url)
+                    self.photoViewModel.cells.append(cell)
+                    self.collectionView.reloadData()
+            }
     }
-        return cell
     }
     
-//    guard let url = URL(string: imageURL) else { return }
-//    let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-//            if let data = data, let image = UIImage(data: data) {
-//                DispatchQueue.main.async {
-//                    self?.imageView.image = image
-//            }
-//        }
-//    }
-//    dataTask.resume()
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
+        let cellViewModel = photoViewModel.cells[indexPath.row]
+        cell.set(viewModel: cellViewModel)
+        return cell
+        }
+    
+
 
     // MARK: UICollectionViewDelegate
 

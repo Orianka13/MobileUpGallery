@@ -24,3 +24,11 @@ struct PhotosItem: Decodable {
 struct PhotosUrl: Decodable {
     let url: String
 }
+
+
+struct PhotoViewModel {
+    struct Cell: PhotoCellViewModel {
+        var photoUrlString: String
+    }
+    var cells: [Cell]
+}
