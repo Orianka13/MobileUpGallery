@@ -8,8 +8,6 @@
 import UIKit
 import VK_ios_sdk
 
-
-
 class GalleryViewController: UICollectionViewController {
     
     private var authService: AuthService!
@@ -33,29 +31,30 @@ class GalleryViewController: UICollectionViewController {
         
         authService = SceneDelegate.shared().authService
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
     
     private func setupTopBar() {
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.title = "Mobile Up Gallery"
     
-        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: nil, action: nil)
+        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
         exitButton.tintColor = .black
         
         self.navigationItem.rightBarButtonItem = exitButton
         
     }
+    
+    @objc func exitButton() {
+        authService.logOut()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func backButton() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "chevron.backward"), style: .plain, target: nil, action: nil)
+        backButton.tintColor = .black
+        navigationItem.backBarButtonItem = backButton
+    }
+    
+
 
     func photoUrl() {
             fetcher.getPhotos { photosResponse in
@@ -70,7 +69,7 @@ class GalleryViewController: UICollectionViewController {
             }
     }
     }
-    
+    // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoViewModel.cells.count
     }
@@ -84,36 +83,18 @@ class GalleryViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoVC = PhotoViewController()
+        backButton()
+        let cellViewModel = photoViewModel.cells[indexPath.row]
+        let url = cellViewModel.photoUrlString
+        photoVC.photoUrl = url
+        navigationController?.pushViewController(photoVC, animated: true)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }
+
+// settings of displaying photoGallery
 
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 

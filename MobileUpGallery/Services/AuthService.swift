@@ -12,6 +12,7 @@ protocol AuthServiceDelegate: AnyObject {
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceSingiInDidFail()
+    func authServiceSignOut()
   
 }
 
@@ -49,6 +50,11 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
                 delegate?.authServiceSingiInDidFail()
             }
         }
+    }
+    
+    func logOut() {
+        VKSdk.forceLogout()
+        delegate?.authServiceSignOut()
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {

@@ -17,6 +17,8 @@
 		5975DE0E26AB28C200789746 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975DE0D26AB28C200789746 /* PhotoCell.swift */; };
 		5975DE1026AF0B3200789746 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5975DE0F26AF0B3200789746 /* PhotoCell.xib */; };
 		5979BBFF26A712E200069B14 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5979BBFE26A712E200069B14 /* AuthViewController.storyboard */; };
+		597AE1E626B2E8850052DCD7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1E426B2E8850052DCD7 /* PhotoViewController.swift */; };
+		597AE1E726B2E8850052DCD7 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597AE1E526B2E8850052DCD7 /* PhotoViewController.xib */; };
 		59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684CE26A6DA71004EFB9C /* AppDelegate.swift */; };
 		59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D026A6DA71004EFB9C /* SceneDelegate.swift */; };
 		59D684D326A6DA71004EFB9C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D226A6DA71004EFB9C /* AuthViewController.swift */; };
@@ -52,6 +54,8 @@
 		5975DE0D26AB28C200789746 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		5975DE0F26AF0B3200789746 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		5979BBFE26A712E200069B14 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
+		597AE1E426B2E8850052DCD7 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		597AE1E526B2E8850052DCD7 /* PhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D684D026A6DA71004EFB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,13 +114,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5975DDF526A9C38E00789746 /* Photos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Photos;
-			sourceTree = "<group>";
-		};
 		5975DE1326B1845E00789746 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +121,15 @@
 				5975DE0D26AB28C200789746 /* PhotoCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		597AE1DB26B2DD6D0052DCD7 /* PhotoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				597AE1E426B2E8850052DCD7 /* PhotoViewController.swift */,
+				597AE1E526B2E8850052DCD7 /* PhotoViewController.xib */,
+			);
+			path = PhotoViewController;
 			sourceTree = "<group>";
 		};
 		59D684C226A6DA71004EFB9C = {
@@ -147,11 +153,11 @@
 		59D684CD26A6DA71004EFB9C /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
-				5975DDF526A9C38E00789746 /* Photos */,
 				59D684CE26A6DA71004EFB9C /* AppDelegate.swift */,
 				59D684D026A6DA71004EFB9C /* SceneDelegate.swift */,
 				5975DDEB26A86B4400789746 /* AuthViewController */,
 				5975DDEA26A86B1E00789746 /* GalleryViewController */,
+				597AE1DB26B2DD6D0052DCD7 /* PhotoViewController */,
 				59D684EE26A70D96004EFB9C /* Services */,
 				59D684D726A6DA7B004EFB9C /* Assets.xcassets */,
 				59D684D926A6DA7B004EFB9C /* LaunchScreen.storyboard */,
@@ -245,6 +251,7 @@
 				5975DDE926A86A1F00789746 /* GalleryViewController.storyboard in Resources */,
 				59D684DB26A6DA7B004EFB9C /* LaunchScreen.storyboard in Resources */,
 				5979BBFF26A712E200069B14 /* AuthViewController.storyboard in Resources */,
+				597AE1E726B2E8850052DCD7 /* PhotoViewController.xib in Resources */,
 				59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */,
 				5975DE1026AF0B3200789746 /* PhotoCell.xib in Resources */,
 			);
@@ -304,6 +311,7 @@
 				59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */,
 				5975DDE726A86A0A00789746 /* GalleryViewController.swift in Sources */,
 				5975DDF226A99AFE00789746 /* PhotosResponse.swift in Sources */,
+				597AE1E626B2E8850052DCD7 /* PhotoViewController.swift in Sources */,
 				59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */,
 				5975DDED26A96B1E00789746 /* NetworkService.swift in Sources */,
 				5975DDF426A9A2BE00789746 /* NetworkDataFetcher.swift in Sources */,

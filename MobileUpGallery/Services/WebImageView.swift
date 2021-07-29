@@ -19,9 +19,7 @@ class WebImageView: UIImageView {
             //print("from cache")
             return
         }
-        
         //print("from internet")
-        
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let data = data, let response = response {
                     DispatchQueue.main.async {
