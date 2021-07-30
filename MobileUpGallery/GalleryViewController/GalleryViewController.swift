@@ -18,7 +18,7 @@ class GalleryViewController: UICollectionViewController {
     private var photoViewModel = PhotoViewModel.init(cells: [])
     
     let itemsPerRow: CGFloat = 2
-    let sectionInserts = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+    let sectionInserts = UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,6 @@ class GalleryViewController: UICollectionViewController {
     }
     
     private func setupTopBar() {
-        self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.title = "Mobile Up Gallery"
     
         let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
@@ -48,22 +47,30 @@ class GalleryViewController: UICollectionViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func backButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "chevron.backward"), style: .plain, target: nil, action: nil)
+    private func backButton() {
+        let backButton = UIBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
         backButton.tintColor = .black
         navigationItem.backBarButtonItem = backButton
     }
     
+    private func dateFormatter(viewController: PhotoViewController, cellViewModel: PhotoViewModel.Cell ) {
+        let date = cellViewModel.date
+        let currentDate = Date(timeIntervalSince1970: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "d MMMM YYYY"
+        viewController.navigationItem.title = dateFormatter.string(from: currentDate)
+    }
 
-
-    func photoUrl() {
+    private func photoUrl() {
             fetcher.getPhotos { photosResponse in
             guard let photosResponse = photosResponse else { return }
             
                 photosResponse.items.map { photosUrl in
                 let lastItem = photosUrl.sizes.last
                 guard let url = lastItem?.url else { return }
-                    let cell = PhotoViewModel.Cell.init(photoUrlString: url)
+                let date = photosUrl.date
+                    let cell = PhotoViewModel.Cell.init(photoUrlString: url, date: date)
                     self.photoViewModel.cells.append(cell)
                     self.collectionView.reloadData()
             }
@@ -89,7 +96,11 @@ class GalleryViewController: UICollectionViewController {
         let cellViewModel = photoViewModel.cells[indexPath.row]
         let url = cellViewModel.photoUrlString
         photoVC.photoUrl = url
+        
+        dateFormatter(viewController: photoVC, cellViewModel: cellViewModel)
+        
         navigationController?.pushViewController(photoVC, animated: true)
+        
     }
 
 }
@@ -100,7 +111,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let paddingWidth = sectionInserts.left * (itemsPerRow + 1)
+        let paddingWidth = sectionInserts.bottom
         let availableWidth = collectionView.frame.width - paddingWidth
         let widthPerItem = availableWidth / itemsPerRow
         return CGSize(width: widthPerItem, height: widthPerItem)
@@ -111,10 +122,12 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInserts.left
+        return sectionInserts.bottom
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInserts.left
+        return sectionInserts.bottom
     }
+    
+    
 }

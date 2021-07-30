@@ -26,26 +26,14 @@
                         <constraint firstAttribute="height" constant="414" id="e6i-av-NMX"/>
                     </constraints>
                 </imageView>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-4m-d8B">
-                    <rect key="frame" x="0.0" y="751" width="414" height="96"/>
-                    <accessibility key="accessibilityConfiguration">
-                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
-                    </accessibility>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="96" id="zjk-5x-XCb"/>
-                    </constraints>
-                </pickerView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="XdH-4m-d8B" firstAttribute="top" secondItem="IWp-mn-AXt" secondAttribute="bottom" constant="100" id="0wh-9A-Exy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IWp-mn-AXt" secondAttribute="bottom" constant="211" id="LnD-sm-0xz"/>
                 <constraint firstItem="IWp-mn-AXt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SuC-3X-xYF"/>
-                <constraint firstItem="XdH-4m-d8B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZV8-lX-Arv"/>
                 <constraint firstItem="IWp-mn-AXt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bEJ-pH-1PG"/>
-                <constraint firstItem="XdH-4m-d8B" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ikL-nD-Alw"/>
                 <constraint firstItem="IWp-mn-AXt" firstAttribute="top" relation="lessThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="226" id="lfK-eT-cll"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XdH-4m-d8B" secondAttribute="bottom" constant="15" id="ren-ew-Cau"/>
             </constraints>
             <point key="canvasLocation" x="73.913043478260875" y="1.3392857142857142"/>
         </view>
