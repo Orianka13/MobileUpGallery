@@ -27,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         window?.windowScene = windowScene
         self.authService = AuthService()
         authService.delegate = self
-        let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as? AuthViewController
+        let authVC = AuthViewController(nibName: "AuthViewController", bundle: nil)
+        //let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as? AuthViewController
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
     }
@@ -63,7 +64,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     
     func authServiceSignIn() {
         print(#function)
-        let galleryVC = UIStoryboard(name: "GalleryViewController", bundle: nil).instantiateInitialViewController() as! GalleryViewController
+        let galleryVC = GalleryViewController(nibName: "GalleryViewController", bundle: nil)
+        //let galleryVC = UIStoryboard(name: "GalleryViewController", bundle: nil).instantiateInitialViewController() as! GalleryViewController
         let navVC = UINavigationController(rootViewController: galleryVC)
         window?.rootViewController = navVC
     }
@@ -73,7 +75,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     }
     
     func authServiceSignOut() {
-        let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as! AuthViewController
+        let authVC = AuthViewController(nibName: "AuthViewController", bundle: nil)
+        //let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as! AuthViewController
         window?.rootViewController = authVC
         print(#function)
     }

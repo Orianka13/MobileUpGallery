@@ -1,17 +1,16 @@
 //
-//  ViewController.swift
+//  AuthViewController.swift
 //  MobileUpGallery
 //
-//  Created by Олеся Егорова on 20.07.2021.
+//  Created by Олеся Егорова on 30.07.2021.
 //
 
 import UIKit
-import VK_ios_sdk
-
 
 class AuthViewController: UIViewController {
     
     private var authService: AuthService!
+
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
@@ -21,10 +20,9 @@ class AuthViewController: UIViewController {
         button.layer.cornerRadius = 10
         
     }
+
     @IBAction func enterButton(_ sender: UIButton) {
         authService.wakeUpSession()
     }
-    
 
 }
-

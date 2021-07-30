@@ -11,6 +11,7 @@ import VK_ios_sdk
 class GalleryViewController: UICollectionViewController {
     
     private var authService: AuthService!
+    weak var delegate: AuthServiceDelegate?
     
     private let reuseIdentifier = "photoCell"
 
@@ -33,8 +34,7 @@ class GalleryViewController: UICollectionViewController {
     }
     
     private func setupTopBar() {
-        self.navigationController?.title = "Mobile Up Gallery"
-    
+        self.navigationItem.title = "Mobile Up Gallery"
         let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
         exitButton.tintColor = .black
         
@@ -44,7 +44,6 @@ class GalleryViewController: UICollectionViewController {
     
     @objc func exitButton() {
         authService.logOut()
-        dismiss(animated: true, completion: nil)
     }
     
     private func backButton() {
@@ -76,6 +75,8 @@ class GalleryViewController: UICollectionViewController {
             }
     }
     }
+    
+    
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoViewModel.cells.count

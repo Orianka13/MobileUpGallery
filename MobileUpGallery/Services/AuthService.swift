@@ -25,7 +25,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     var token: String? {
         return VKSdk.accessToken().accessToken
-        
     }
     
     override init() {
@@ -54,8 +53,15 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func logOut() {
         VKSdk.forceLogout()
+        HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
         delegate?.authServiceSignOut()
+        
     }
+    
+//    func vkSdkTokenHasExpired(_ expiredToken: VKAccessToken!) {
+//        expiredToken.isExpired()
+//    }
+ 
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
