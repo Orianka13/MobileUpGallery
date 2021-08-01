@@ -53,7 +53,7 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func logOut() {
         VKSdk.forceLogout()
-        HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
+        //HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
         delegate?.authServiceSignOut()
         
     }

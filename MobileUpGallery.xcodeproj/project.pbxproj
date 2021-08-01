@@ -20,6 +20,7 @@
 		597AE1EA26B425700052DCD7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1E826B425700052DCD7 /* AuthViewController.swift */; };
 		597AE1EB26B425700052DCD7 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597AE1E926B425700052DCD7 /* AuthViewController.xib */; };
 		597AE1ED26B4313A0052DCD7 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597AE1EC26B4313A0052DCD7 /* GalleryViewController.xib */; };
+		597AE1F326B5A8E50052DCD7 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */; };
 		59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684CE26A6DA71004EFB9C /* AppDelegate.swift */; };
 		59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D026A6DA71004EFB9C /* SceneDelegate.swift */; };
 		59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D684D726A6DA7B004EFB9C /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		597AE1E826B425700052DCD7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		597AE1E926B425700052DCD7 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		597AE1EC26B4313A0052DCD7 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D684D026A6DA71004EFB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,25 +89,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5975DDEA26A86B1E00789746 /* GalleryViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5975DE1326B1845E00789746 /* Cell */,
-				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
-				597AE1EC26B4313A0052DCD7 /* GalleryViewController.xib */,
-			);
-			path = GalleryViewController;
-			sourceTree = "<group>";
-		};
-		5975DDEB26A86B4400789746 /* AuthViewController */ = {
-			isa = PBXGroup;
-			children = (
-				597AE1E826B425700052DCD7 /* AuthViewController.swift */,
-				597AE1E926B425700052DCD7 /* AuthViewController.xib */,
-			);
-			path = AuthViewController;
-			sourceTree = "<group>";
-		};
 		5975DDF026A99AE100789746 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,22 +97,45 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5975DE1326B1845E00789746 /* Cell */ = {
+		597AE1EE26B4360D0052DCD7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5975DE0F26AF0B3200789746 /* PhotoCell.xib */,
+				597AE1E826B425700052DCD7 /* AuthViewController.swift */,
+				5975DDE626A86A0A00789746 /* GalleryViewController.swift */,
 				5975DE0D26AB28C200789746 /* PhotoCell.swift */,
+				597AE1E426B2E8850052DCD7 /* PhotoViewController.swift */,
 			);
-			path = Cell;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		597AE1DB26B2DD6D0052DCD7 /* PhotoViewController */ = {
+		597AE1EF26B4362F0052DCD7 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				597AE1E426B2E8850052DCD7 /* PhotoViewController.swift */,
-				597AE1E526B2E8850052DCD7 /* PhotoViewController.xib */,
+				59D684CE26A6DA71004EFB9C /* AppDelegate.swift */,
+				59D684D026A6DA71004EFB9C /* SceneDelegate.swift */,
 			);
-			path = PhotoViewController;
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		597AE1F426B5B08C0052DCD7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5975DDEE26A96C3100789746 /* API.swift */,
+				5975DDEC26A96B1E00789746 /* NetworkService.swift */,
+				5975DDF326A9A2BE00789746 /* NetworkDataFetcher.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		597AE1F526B5B0C80052DCD7 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				597AE1E926B425700052DCD7 /* AuthViewController.xib */,
+				597AE1EC26B4313A0052DCD7 /* GalleryViewController.xib */,
+				597AE1E526B2E8850052DCD7 /* PhotoViewController.xib */,
+				5975DE0F26AF0B3200789746 /* PhotoCell.xib */,
+			);
+			path = IBuilder;
 			sourceTree = "<group>";
 		};
 		59D684C226A6DA71004EFB9C = {
@@ -153,11 +159,10 @@
 		59D684CD26A6DA71004EFB9C /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
-				59D684CE26A6DA71004EFB9C /* AppDelegate.swift */,
-				59D684D026A6DA71004EFB9C /* SceneDelegate.swift */,
-				5975DDEB26A86B4400789746 /* AuthViewController */,
-				5975DDEA26A86B1E00789746 /* GalleryViewController */,
-				597AE1DB26B2DD6D0052DCD7 /* PhotoViewController */,
+				597AE1F526B5B0C80052DCD7 /* IBuilder */,
+				597AE1EF26B4362F0052DCD7 /* SupportFiles */,
+				597AE1EE26B4360D0052DCD7 /* Controllers */,
+				5975DDF026A99AE100789746 /* Models */,
 				59D684EE26A70D96004EFB9C /* Services */,
 				59D684D726A6DA7B004EFB9C /* Assets.xcassets */,
 				59D684D926A6DA7B004EFB9C /* LaunchScreen.storyboard */,
@@ -169,11 +174,9 @@
 		59D684EE26A70D96004EFB9C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5975DDF026A99AE100789746 /* Models */,
+				597AE1F426B5B08C0052DCD7 /* Networking */,
 				59D684EC26A70D8D004EFB9C /* AuthService.swift */,
-				5975DDEC26A96B1E00789746 /* NetworkService.swift */,
-				5975DDEE26A96C3100789746 /* API.swift */,
-				5975DDF326A9A2BE00789746 /* NetworkDataFetcher.swift */,
+				597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */,
 				5975DE0B26AAE4FB00789746 /* WebImageView.swift */,
 			);
 			path = Services;
@@ -311,6 +314,7 @@
 				5975DDE726A86A0A00789746 /* GalleryViewController.swift in Sources */,
 				5975DDF226A99AFE00789746 /* PhotosResponse.swift in Sources */,
 				597AE1E626B2E8850052DCD7 /* PhotoViewController.swift in Sources */,
+				597AE1F326B5A8E50052DCD7 /* GalleryManager.swift in Sources */,
 				59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */,
 				597AE1EA26B425700052DCD7 /* AuthViewController.swift in Sources */,
 				5975DDED26A96B1E00789746 /* NetworkService.swift in Sources */,

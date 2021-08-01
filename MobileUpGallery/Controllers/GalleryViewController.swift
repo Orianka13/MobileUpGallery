@@ -12,6 +12,7 @@ class GalleryViewController: UICollectionViewController {
     
     private var authService: AuthService!
     weak var delegate: AuthServiceDelegate?
+    let galleryManager = GalleryManager()
     
     private let reuseIdentifier = "photoCell"
 
@@ -28,39 +29,11 @@ class GalleryViewController: UICollectionViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
         photoUrl()
-        setupTopBar()
+        galleryManager.setupTopBar(navigationItem: self.navigationItem)
         
         authService = SceneDelegate.shared().authService
     }
     
-    private func setupTopBar() {
-        self.navigationItem.title = "Mobile Up Gallery"
-        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
-        exitButton.tintColor = .black
-        
-        self.navigationItem.rightBarButtonItem = exitButton
-        
-    }
-    
-    @objc func exitButton() {
-        authService.logOut()
-    }
-    
-    private func backButton() {
-        let backButton = UIBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
-        backButton.tintColor = .black
-        navigationItem.backBarButtonItem = backButton
-    }
-    
-    private func dateFormatter(viewController: PhotoViewController, cellViewModel: PhotoViewModel.Cell ) {
-        let date = cellViewModel.date
-        let currentDate = Date(timeIntervalSince1970: date)
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.dateFormat = "d MMMM YYYY"
-        viewController.navigationItem.title = dateFormatter.string(from: currentDate)
-    }
-
     private func photoUrl() {
             fetcher.getPhotos { photosResponse in
             guard let photosResponse = photosResponse else { return }
@@ -93,12 +66,14 @@ class GalleryViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoVC = PhotoViewController()
-        backButton()
+        
         let cellViewModel = photoViewModel.cells[indexPath.row]
         let url = cellViewModel.photoUrlString
         photoVC.photoUrl = url
         
-        dateFormatter(viewController: photoVC, cellViewModel: cellViewModel)
+        galleryManager.dateFormatter(viewController: photoVC, cellViewModel: cellViewModel)
+        
+        galleryManager.backButton(navigationItem: self.navigationItem)
         
         navigationController?.pushViewController(photoVC, animated: true)
         
