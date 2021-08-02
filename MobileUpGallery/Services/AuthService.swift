@@ -9,11 +9,11 @@ import Foundation
 import VK_ios_sdk
 
 protocol AuthServiceDelegate: AnyObject {
+    
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceSingiInDidFail()
-    func authServiceSignOut()
-  
+    func authServiceLogout()
 }
 
 class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
@@ -52,16 +52,10 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     }
     
     func logOut() {
-        VKSdk.forceLogout()
-        //HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
-        delegate?.authServiceSignOut()
         
+        VKSdk.forceLogout()
+        delegate?.authServiceLogout()
     }
-    
-//    func vkSdkTokenHasExpired(_ expiredToken: VKAccessToken!) {
-//        expiredToken.isExpired()
-//    }
- 
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
@@ -85,4 +79,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
         print(#function)
     }
+    
+   
 }

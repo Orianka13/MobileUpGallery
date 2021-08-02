@@ -10,7 +10,6 @@ import UIKit
 class PhotoViewController: UIViewController {
     
     var photoUrl: String?
-    
 
     @IBOutlet weak var photoImage: WebImageView!
     
@@ -50,3 +49,5 @@ class PhotoViewController: UIViewController {
         }
     }
 }
+
+

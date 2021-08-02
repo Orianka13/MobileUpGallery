@@ -29,9 +29,9 @@ class GalleryViewController: UICollectionViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
         photoUrl()
-        galleryManager.setupTopBar(navigationItem: self.navigationItem)
         
         authService = SceneDelegate.shared().authService
+        setupTopBar()
     }
     
     private func photoUrl() {
@@ -47,6 +47,19 @@ class GalleryViewController: UICollectionViewController {
                     self.collectionView.reloadData()
             }
     }
+    }
+    
+    func setupTopBar() {
+        self.navigationItem.title = "Mobile Up Gallery"
+        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
+        exitButton.tintColor = .black
+        
+        self.navigationItem.rightBarButtonItem = exitButton
+        
+    }
+    
+    @objc func exitButton() {
+        authService.logOut()
     }
     
     
