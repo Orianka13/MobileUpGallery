@@ -13,7 +13,7 @@ class GalleryManager {
     
     let authService = AuthService()
     
-
+    
     func backButton(navigationItem: UINavigationItem) {
         
         let backButton = UIBarButtonItem(image: nil, style: .done, target: self, action: nil)
@@ -21,7 +21,7 @@ class GalleryManager {
         navigationItem.backBarButtonItem = backButton
     }
     
- 
+    
     func dateFormatter(viewController: PhotoViewController, cellViewModel: PhotoViewModel.Cell ) {
         let date = cellViewModel.date
         let currentDate = Date(timeIntervalSince1970: date)
@@ -30,6 +30,6 @@ class GalleryManager {
         dateFormatter.dateFormat = "d MMMM YYYY"
         viewController.navigationItem.title = dateFormatter.string(from: currentDate)
     }
-
+    
     
 }

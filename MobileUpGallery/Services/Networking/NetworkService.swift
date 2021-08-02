@@ -12,7 +12,7 @@ protocol Networking {
 }
 
 final class NetworkService: Networking {
- 
+    
     private let authService: AuthService
     
     init(authService: AuthService = SceneDelegate.shared().authService) {
@@ -30,7 +30,7 @@ final class NetworkService: Networking {
         allParams["access_token"] = token
         allParams["v"] = API.version
         let url = self.url(from: path, params: allParams)
-
+        
         let request = URLRequest(url: url)
         let task = createDataTask(from: request, completion: completion)
         task.resume()
