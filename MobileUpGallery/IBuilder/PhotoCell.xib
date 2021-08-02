@@ -11,17 +11,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Ar7-KV-b9U" customClass="PhotoCell" customModule="MobileUpGallery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cld-Zp-JF6">
+                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNv-Lp-NDw" customClass="WebImageView" customModule="MobileUpGallery" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="xnE-C7-Iwa">
+                        <rect key="frame" x="481.5" y="481.5" width="37" height="37"/>
+                        <color key="color" red="0.13725490200000001" green="0.1215686275" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </activityIndicatorView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="xnE-C7-Iwa" firstAttribute="centerY" secondItem="cld-Zp-JF6" secondAttribute="centerY" id="LOj-Bh-wwB"/>
+                    <constraint firstItem="xnE-C7-Iwa" firstAttribute="centerX" secondItem="cld-Zp-JF6" secondAttribute="centerX" id="NA8-Dk-YkE"/>
+                </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="450" height="232"/>
             <connections>
+                <outlet property="activityIndicator" destination="xnE-C7-Iwa" id="3GY-vH-F9g"/>
                 <outlet property="urlView" destination="nNv-Lp-NDw" id="x4M-uz-5FL"/>
             </connections>
             <point key="canvasLocation" x="105.79710144927537" y="62.276785714285708"/>

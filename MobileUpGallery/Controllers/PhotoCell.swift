@@ -14,6 +14,7 @@ protocol PhotoCellViewModel {
 class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var urlView: WebImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override class func awakeFromNib() {
         super.awakeFromNib()

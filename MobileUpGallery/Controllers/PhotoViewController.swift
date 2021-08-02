@@ -47,6 +47,7 @@ class PhotoViewController: UIViewController {
             }
         }
         present(shareController, animated: true, completion: nil)
+
         //UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     

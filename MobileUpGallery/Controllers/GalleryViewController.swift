@@ -72,8 +72,14 @@ class GalleryViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
+        cell.activityIndicator.startAnimating()
+        
         let cellViewModel = photoViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        
+        cell.activityIndicator.stopAnimating()
+        cell.activityIndicator.isHidden = true
+        
         return cell
     }
     
