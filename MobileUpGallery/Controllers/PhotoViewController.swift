@@ -10,14 +10,20 @@ import UIKit
 class PhotoViewController: UIViewController {
     
     var photoUrl: String?
+    var photoScrollView: PhotoScrollView!
+    
     
     @IBOutlet weak var photoImage: WebImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setPhoto()
+        
+        
         saveButton()
+        setPhoto()
+        
+        setupPhotoScrollView()
     }
     
     private func setPhoto() {
@@ -25,6 +31,7 @@ class PhotoViewController: UIViewController {
             showAlert(title: "Ошибка", message: "Ошибка загрузки изображения")
             return }
         photoImage.setImageUrl(imageURL: photoUrl)
+        
     }
     
     private func saveButton() {
@@ -47,23 +54,37 @@ class PhotoViewController: UIViewController {
             }
         }
         present(shareController, animated: true, completion: nil)
-
+        
         //UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-//    @objc func image(_ image: WebImageView, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-//        if let error = error {
-//            showAlert(title: "Ошибка сохранения", message: error.localizedDescription)
-//        } else {
-//            showAlert(title: "Сохранено!", message: "Изображение сохранено в ваши фотографии.")
-//        }
-//    }
+    //    @objc func image(_ image: WebImageView, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    //        if let error = error {
+    //            showAlert(title: "Ошибка сохранения", message: error.localizedDescription)
+    //        } else {
+    //            showAlert(title: "Сохранено!", message: "Изображение сохранено в ваши фотографии.")
+    //        }
+    //    }
     
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+    func setupPhotoScrollView() {
+        photoScrollView = PhotoScrollView(frame: photoImage.bounds)
+        view.addSubview(photoScrollView)
+        
+        photoScrollView.translatesAutoresizingMaskIntoConstraints = false
+        photoScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        photoScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        photoScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        photoScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        
+        photoScrollView.set(image: photoImage.image!)
+        photoImage.isHidden = true
     }
 }
 
