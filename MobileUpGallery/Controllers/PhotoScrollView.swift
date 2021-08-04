@@ -9,9 +9,7 @@ import UIKit
 
 class PhotoScrollView: UIScrollView, UIScrollViewDelegate {
     
-    var imageZoomView: UIImageView!
-    
-    let sectionInserts = UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0)
+    var imageZoomView: WebImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,9 +32,9 @@ class PhotoScrollView: UIScrollView, UIScrollViewDelegate {
     
     func set(image: UIImage) {
         
-        imageZoomView?.removeFromSuperview()
-        imageZoomView = nil
-        imageZoomView = UIImageView(image: image)
+//        imageZoomView?.removeFromSuperview()
+//        imageZoomView = nil
+        imageZoomView = WebImageView(image: image)
         self.addSubview(imageZoomView)
         
         configurateFor(imageSize: image.size)
@@ -105,6 +103,3 @@ class PhotoScrollView: UIScrollView, UIScrollViewDelegate {
     }
 }
 
-extension PhotoScrollView: UICollectionViewDelegateFlowLayout {
-    
-}
