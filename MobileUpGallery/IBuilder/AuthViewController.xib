@@ -44,7 +44,7 @@
                         <constraint firstAttribute="height" constant="56" id="Wsg-n0-vAf"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="Вход через VK">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>

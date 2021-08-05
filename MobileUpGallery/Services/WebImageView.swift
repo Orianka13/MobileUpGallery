@@ -13,7 +13,7 @@ class WebImageView: UIImageView {
     func setImageUrl(imageURL: String) {
         
         guard let url = URL(string: imageURL) else {
-            self.showAlert(title: "Ошибка", message: "Ошибка загрузки изображения")
+            self.showAlert(title: NSLocalizedString("Ошибка", comment: "Ошибка"), message: NSLocalizedString("Ошибка загрузки изображения", comment: "Ошибка загрузки изображения"))
             return }
         
                 if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
@@ -31,7 +31,7 @@ class WebImageView: UIImageView {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.showAlert(title: "Ошибка", message: "Ошибка загрузки изображения")
+                    self?.showAlert(title: NSLocalizedString("Ошибка", comment: "Ошибка"), message: NSLocalizedString("Ошибка загрузки изображения", comment: "Ошибка загрузки изображения"))
                 }
             }
         }

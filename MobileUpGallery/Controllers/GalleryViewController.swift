@@ -7,6 +7,7 @@
 
 import UIKit
 import VK_ios_sdk
+import WebKit
 
 class GalleryViewController: UICollectionViewController {
     
@@ -53,7 +54,7 @@ class GalleryViewController: UICollectionViewController {
     
     func setupTopBar() {
         self.navigationItem.title = "Mobile Up Gallery"
-        let exitButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitButton))
+        let exitButton = UIBarButtonItem(title: NSLocalizedString("Выход", comment: "Выход"), style: .plain, target: self, action: #selector(exitButton))
         exitButton.tintColor = .black
         
         self.navigationItem.rightBarButtonItem = exitButton
@@ -62,9 +63,9 @@ class GalleryViewController: UICollectionViewController {
     
     @objc func exitButton() {
         authService.logOut()
+        galleryManager.removeCookies()
     }
-    
-    
+        
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoViewModel.cells.count

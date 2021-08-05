@@ -29,7 +29,7 @@ class PhotoViewController: UIViewController {
     
     func setPhoto() {
         guard let photoUrl = photoUrl else {
-            showAlert(title: "Ошибка", message: "Ошибка загрузки изображения")
+            showAlert(title: NSLocalizedString("Ошибка", comment: "Ошибка"), message: NSLocalizedString("Ошибка загрузки изображения", comment: "Ошибка загрузки изображения"))
             return }
         photoImage.setImageUrl(imageURL: photoUrl)
     }
@@ -49,14 +49,14 @@ class PhotoViewController: UIViewController {
     
     @objc func loadImage() {
         guard let image = photoImage.image else {
-            showAlert(title: "Ошибка", message: "Ошибка получения изображения")
+            showAlert(title: NSLocalizedString("Ошибка", comment: "Ошибка"), message: NSLocalizedString("Ошибка получения изображения", comment: "Ошибка получения изображения"))
             return }
         let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         shareController.completionWithItemsHandler = {_, bool, _, error in
             if bool {
-                self.showAlert(title: "Сохранено!", message: "Изображение сохранено в ваши фотографии.")
+                self.showAlert(title: NSLocalizedString("Сохранено!", comment: "Сохранено!"), message: NSLocalizedString("Изображение сохранено в ваши фотографии.", comment: "Изображение сохранено в ваши фотографии."))
             } else if error != nil {
-                self.showAlert(title: "Ошибка сохранения", message: error?.localizedDescription ?? "Изображение не сохранено")
+                self.showAlert(title: NSLocalizedString("Ошибка сохранения", comment: "Ошибка сохранения"), message: error?.localizedDescription ?? NSLocalizedString("Изображение не сохранено", comment: "Изображение не сохранено"))
             }
         }
         present(shareController, animated: true, completion: nil)

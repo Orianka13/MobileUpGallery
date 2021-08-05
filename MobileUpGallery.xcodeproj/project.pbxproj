@@ -23,6 +23,7 @@
 		597AE1F326B5A8E50052DCD7 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */; };
 		597AE1F926B830A70052DCD7 /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1F826B830A60052DCD7 /* PhotoScrollView.swift */; };
 		597AE1FB26B9842E0052DCD7 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AE1FA26B9842D0052DCD7 /* PhotoCollectionView.swift */; };
+		597AE1FE26BBFEAE0052DCD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 597AE20026BBFEAE0052DCD7 /* Localizable.strings */; };
 		59D684CF26A6DA71004EFB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684CE26A6DA71004EFB9C /* AppDelegate.swift */; };
 		59D684D126A6DA71004EFB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D684D026A6DA71004EFB9C /* SceneDelegate.swift */; };
 		59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D684D726A6DA7B004EFB9C /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		597AE1F826B830A60052DCD7 /* PhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		597AE1FA26B9842D0052DCD7 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
+		597AE1FF26BBFEAE0052DCD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		59D684CB26A6DA71004EFB9C /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D684CE26A6DA71004EFB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D684D026A6DA71004EFB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				59D684EC26A70D8D004EFB9C /* AuthService.swift */,
 				597AE1F226B5A8E50052DCD7 /* GalleryManager.swift */,
 				5975DE0B26AAE4FB00789746 /* WebImageView.swift */,
+				597AE20026BBFEAE0052DCD7 /* Localizable.strings */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				597AE1EB26B425700052DCD7 /* AuthViewController.xib in Resources */,
 				59D684DB26A6DA7B004EFB9C /* LaunchScreen.storyboard in Resources */,
 				597AE1E726B2E8850052DCD7 /* PhotoViewController.xib in Resources */,
+				597AE1FE26BBFEAE0052DCD7 /* Localizable.strings in Resources */,
 				59D684D826A6DA7B004EFB9C /* Assets.xcassets in Resources */,
 				5975DE1026AF0B3200789746 /* PhotoCell.xib in Resources */,
 				597AE1ED26B4313A0052DCD7 /* GalleryViewController.xib in Resources */,
@@ -336,6 +340,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		597AE20026BBFEAE0052DCD7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				597AE1FF26BBFEAE0052DCD7 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		59D684D926A6DA7B004EFB9C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

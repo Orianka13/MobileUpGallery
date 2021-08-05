@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  MobileUpGallery
+
+  Created by Олеся Егорова on 05.08.2021.
+  
+*/
+
+"Вход через VK" = "Login with VK";
+"Выход" = "Exit";
+"Ошибка" = "Error";
+"Ошибка загрузки изображения" = "Image upload error";
+"Ошибка получения изображения" = "Image acquisition error";
+"Сохранено!" = "Saved!";
+"Изображение сохранено в ваши фотографии." = "The image is saved to your photos.";
+"Ошибка сохранения" = "Save error";
+"Изображение не сохранено" = "Image not saved";
+"ru_RU" = "en_US";
