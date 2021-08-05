@@ -32,8 +32,8 @@ class PhotoScrollView: UIScrollView, UIScrollViewDelegate {
     
     func set(image: UIImage) {
         
-//        imageZoomView?.removeFromSuperview()
-//        imageZoomView = nil
+        imageZoomView?.removeFromSuperview()
+        imageZoomView = nil
         imageZoomView = WebImageView(image: image)
         self.addSubview(imageZoomView)
         

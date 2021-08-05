@@ -34,13 +34,6 @@ class PhotoViewController: UIViewController {
         photoImage.setImageUrl(imageURL: photoUrl)
     }
     
-    func setPhoto2() {
-        guard let photoUrl2 = photoUrl2 else {
-            print("Ошибка загрузки изображения2")
-            return }
-        photoImage.setImageUrl(imageURL: photoUrl2)
-    }
-    
     private func saveButton() {
         let saveButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(loadImage))
         saveButton.tintColor = .black

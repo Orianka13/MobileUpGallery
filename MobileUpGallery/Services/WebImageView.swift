@@ -16,12 +16,10 @@ class WebImageView: UIImageView {
             self.showAlert(title: NSLocalizedString("Ошибка", comment: "Ошибка"), message: NSLocalizedString("Ошибка загрузки изображения", comment: "Ошибка загрузки изображения"))
             return }
         
-                if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
-                    self.image = UIImage(data: cachedResponse.data)
-                    //print("from cache")
-                    return
-                }
-        //print("from internet")
+        if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
+            self.image = UIImage(data: cachedResponse.data)
+            return
+        }
         
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let data = data, let response = response {
@@ -38,11 +36,11 @@ class WebImageView: UIImageView {
         dataTask.resume()
     }
     
-        private func handleLoadedImage(data: Data, response: URLResponse) {
-            guard let responseURL = response.url else { return }
-            let cacheResponse = CachedURLResponse(response: response, data: data)
-            URLCache.shared.storeCachedResponse(cacheResponse, for: URLRequest(url: responseURL))
-        }
+    private func handleLoadedImage(data: Data, response: URLResponse) {
+        guard let responseURL = response.url else { return }
+        let cacheResponse = CachedURLResponse(response: response, data: data)
+        URLCache.shared.storeCachedResponse(cacheResponse, for: URLRequest(url: responseURL))
+    }
     
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

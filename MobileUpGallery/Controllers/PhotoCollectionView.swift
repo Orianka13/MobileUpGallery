@@ -44,15 +44,6 @@ class PhotoCollectionView: UICollectionView, UICollectionViewDelegate, UICollect
         cell.activityIndicator.isHidden = true
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photoVC = PhotoViewController(nibName: "PhotoViewController", bundle: nil)
-        let cellViewModel = photoViewModel.cells[indexPath.row]
-        let url = cellViewModel.photoUrlString
-        photoVC.photoUrl2 = url
-        photoVC.loadViewIfNeeded()
-        photoVC.setPhoto2()
-    }
 }
 
 extension PhotoCollectionView: UICollectionViewDelegateFlowLayout {

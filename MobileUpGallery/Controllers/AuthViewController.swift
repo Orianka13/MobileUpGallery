@@ -19,11 +19,9 @@ class AuthViewController: UIViewController {
         authService = SceneDelegate.shared().authService
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Вход через VK", comment: "Вход через VK"), for: .normal)
-        
     }
     
     @IBAction func enterButton(_ sender: UIButton) {
         authService.wakeUpSession()
     }
-    
 }

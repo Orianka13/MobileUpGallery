@@ -58,7 +58,6 @@ class GalleryViewController: UICollectionViewController {
         exitButton.tintColor = .black
         
         self.navigationItem.rightBarButtonItem = exitButton
-        
     }
     
     @objc func exitButton() {
@@ -98,9 +97,7 @@ class GalleryViewController: UICollectionViewController {
         galleryManager.backButton(navigationItem: self.navigationItem)
         
         navigationController?.pushViewController(photoVC, animated: true)
-        
     }
-    
 }
 
 // settings of displaying photoGallery
@@ -126,6 +123,4 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInserts.bottom
     }
-    
-    
 }
